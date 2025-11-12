@@ -23,8 +23,6 @@ ChartJS.register(
   Legend
 );
 
-console.log(import.meta.env.COINGECKO_API_KEY, import.meta.env.GEMINI_API_KEY);
-
 function App() {
   const coingeckoApiKey = import.meta.env.VITE_COINGECKO_API_KEY;
   const currentDataUrl =
@@ -39,15 +37,8 @@ function App() {
   };
 
   const [loading, setLoading] = useState(true);
-  const [historicData, setHistoricData] = useState({
-    name: "Unknown",
-    prices: [],
-  });
-  const [currentData, setCurrentData] = useState({
-    name: "Unknown",
-    prices: [],
-    market_data: { current_price: { usd: 0 } },
-  });
+  const [historicData, setHistoricData] = useState({});
+  const [currentData, setCurrentData] = useState({});
   const [error, setError] = useState({});
   useEffect(() => {
     fetch(currentDataUrl, options)
@@ -122,7 +113,7 @@ function App() {
       <h1>Historic {currentData.name} Prices</h1>
       <Line options={graphOptions} data={data} />
 
-      <GeminiData />
+      <GeminiData currentData={currentData} historicData={historicData} />
     </div>
   );
 }
