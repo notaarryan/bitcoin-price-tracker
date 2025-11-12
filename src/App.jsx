@@ -26,6 +26,7 @@ ChartJS.register(
 console.log(import.meta.env.COINGECKO_API_KEY, import.meta.env.GEMINI_API_KEY);
 
 function App() {
+  const coingeckoApiKey = import.meta.env.VITE_COINGECKO_API_KEY;
   const currentDataUrl =
     "https://api.coingecko.com/api/v3/coins/bitcoin?market_data=true&tickers=true";
   const historicDataUrl =
@@ -33,7 +34,7 @@ function App() {
 
   const options = {
     method: "GET",
-    headers: { "x-cg-demo-api-key": import.meta.env.COINGECKO_API_KEY },
+    headers: { "x-cg-demo-api-key": coingeckoApiKey },
     body: undefined,
   };
 

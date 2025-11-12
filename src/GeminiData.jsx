@@ -6,10 +6,11 @@ import "./GeminiData.css";
 function GeminiData() {
   const [geminiLoadingStatus, setGeminiLoadingStatus] = useState(true);
   const [geminiResponse, setGeminiResponse] = useState("");
+  const geminiApiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
   useEffect(() => {
     const ai = new GoogleGenAI({
-      apiKey: import.meta.env.GEMINI_API_KEY,
+      apiKey: geminiApiKey,
     });
     async function main() {
       try {
