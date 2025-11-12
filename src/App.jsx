@@ -23,6 +23,8 @@ ChartJS.register(
   Legend
 );
 
+console.log(import.meta.env.COINGECKO_API_KEY, import.meta.env.GEMINI_API_KEY);
+
 function App() {
   const currentDataUrl =
     "https://api.coingecko.com/api/v3/coins/bitcoin?market_data=true&tickers=true";
